@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publicar Vacante</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <%- include('partials/navbar') %>
+    <br>
+    <div class="container-fluid">
+        <div class="row">
+            <%- include('partials/sidebar') %>
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 order-md-last order-first">
+                <h2>Publicar Nueva Vacante</h2>
+                <% if (error) { %>
+                    <div class="alert alert-danger" role="alert">
+                        <%= error %>
+                    </div>
+                <% } %>
+                <form action="/company-post-vacancy" method="POST">
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Título</label>
+                        <input type="text" class="form-control" id="title" name="title" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Descripción</label>
+                        <textarea class="form-control" id="description" name="description" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="minAverage" class="form-label">Promedio Mínimo (0-10)</label>
+                        <input type="number" step="0.1" min="0" max="10" class="form-control" id="minAverage" name="minAverage" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="requiredCareer" class="form-label">Carrera Requerida</label>
+                        <select class="form-control" id="requiredCareer" name="requiredCareer" required>
+                            <option value="" disabled selected>Selecciona una carrera</option>
+                            <option value="Ingeniería">Ingeniería</option>
+                            <option value="Medicina">Medicina</option>
+                            <option value="Derecho">Derecho</option>
+                            <option value="Administración">Administración</option>
+                            <option value="Arquitectura">Arquitectura</option>
+                            <option value="Psicología">Psicología</option>
+                            <option value="Contabilidad">Contabilidad</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="minQuarters" class="form-label">Trimestres Mínimos</label>
+                        <input type="number" class="form-control" id="minQuarters" name="minQuarters" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Publicar Vacante</button>
+                </form>
+            </main>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

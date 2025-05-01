@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perfil</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <%- include('partials/navbar') %>
+    <br>
+    <div class="container-fluid">
+        <div class="row">
+            <%- include('partials/sidebar') %>
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 order-md-last order-first">
+                <h2>Mi Perfil</h2>
+                <h3>Información Académica</h3>
+                <% if (error) { %>
+                    <div class="alert alert-danger" role="alert">
+                        <%= error %>
+                    </div>
+                <% } %>
+                <form action="/student" method="POST" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="cv" class="form-label">CV (PDF, PNG, JPG, máx. 5MB)</label>
+                        <input type="file" class="form-control" id="cv" name="cv" accept=".pdf,.png,.jpg,.jpeg">
+                        <% if (student && student.cvPath) { %>
+                            <p>CV actual: <a href="<%= student.cvPath %>" target="_blank">Ver CV</a></p>
+                        <% } %>
+                    </div>
+                    <div class="mb-3">
+                        <label for="profilePhoto" class="form-label">Foto de Perfil (PNG, JPG, máx. 5MB)</label>
+                        <input type="file" class="form-control" id="profilePhoto" name="profilePhoto" accept=".png,.jpg,.jpeg">
+                        <% if (student && student.profilePhotoPath) { %>
+                            <p>Foto actual: <img src="<%= student.profilePhotoPath %>" alt="Foto de Perfil" style="max-width: 100px;"></p>
+                        <% } %>
+                    </div>
+                    <div class="mb-3">
+                        <label for="average" class="form-label">Promedio (0-10)</label>
+                        <input type="number" step="0.1" min="0" max="10" class="form-control" id="average" name="average" value="<%= student ? student.average : '' %>" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="career" class="form-label">Carrera</label>
+                        <select class="form-control" id="career" name="career" required>
+                            <option value="" disabled <%= !student ? 'selected' : '' %>>Selecciona una carrera</option>
+                            <option value="Ingeniería" <%= student && student.career === 'Ingeniería' ? 'selected' : '' %>>Ingeniería</option>
+                            <option value="Medicina" <%= student && student.career === 'Medicina' ? 'selected' : '' %>>Medicina</option>
+                            <option value="Derecho" <%= student && student.career === 'Derecho' ? 'selected' : '' %>>Derecho</option>
+                            <option value="Administración" <%= student && student.career === 'Administración' ? 'selected' : '' %>>Administración</option>
+                            <option value="Arquitectura" <%= student && student.career === 'Arquitectura' ? 'selected' : '' %>>Arquitectura</option>
+                            <option value="Psicología" <%= student && student.career === 'Psicología' ? 'selected' : '' %>>Psicología</option>
+                            <option value="Contabilidad" <%= student && student.career === 'Contabilidad' ? 'selected' : '' %>>Contabilidad</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="quarters" class="form-label">Trimestres Cursados</label>
+                        <input type="number" class="form-control" id="quarters" name="quarters" value="<%= student ? student.quarters : '' %>" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="credits" class="form-label">Créditos Acumulados</label>
+                        <input type="number" class="form-control" id="credits" name="credits" value="<%= student ? student.credits : '' %>" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </form>
+            </main>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

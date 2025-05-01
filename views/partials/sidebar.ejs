@@ -1,0 +1,37 @@
+<nav id="sidebar" class="col-md-3 col-lg-2 sidebar order-md-first order-last">
+    <div class="position-sticky pt-3">
+        <ul class="nav flex-column">
+            <% if (user && user.role === 'student') { %>
+                <li class="nav-item">
+                    <a class="nav-link" href="/student-home">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/student-profile">Mi Perfil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/student-vacancies">Vacantes</a>
+                </li>
+            <% } else if (user && user.role === 'company') { %>
+                <li class="nav-item">
+                    <a class="nav-link" href="/company-home">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/company-post-vacancy">Publicar Vacante</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/company-vacancies">Mis Vacantes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/company-messages">Mis Mensajes</a>
+                </li>
+            <% } else { %>
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">Iniciar Sesión</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/register">Registrarse</a>
+                </li>
+            <% } %>
+        </ul>
+    </div>
+</nav>

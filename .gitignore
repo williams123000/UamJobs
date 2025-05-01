@@ -1,0 +1,8 @@
+// Enviorement
+.env
+// Node modules
+node_modules
+// Build output
+dist
+
+public/uploads/*

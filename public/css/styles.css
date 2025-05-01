@@ -1,0 +1,86 @@
+body, html {
+    background-color: #f8f9fa;
+    margin: 0; /* Eliminar margen por defecto */
+    height: 100%; /* Asegurar que el body ocupe toda la altura */
+}
+
+.sidebar {
+    position: fixed;
+    top: 56px;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    padding: 20px;
+    background-color: #343a40;
+    color: white;
+    overflow-y: auto;
+    height: calc(100vh - 56px); /* Altura total menos la barra de navegación */
+}
+
+.sidebar .nav-link {
+    color: #adb5bd;
+}
+
+.sidebar .nav-link:hover {
+    color: white;
+}
+
+.summary-card {
+    max-width: 400px; /* Hacer el card más pequeño */
+    font-size: 0.9rem; /* Reducir tamaño de texto */
+}
+
+.profile-photo {
+    max-width: 100px;
+    height: auto;
+    border-radius: 10%;
+    object-fit: cover;
+}
+
+main {
+    margin-top: 56px;
+    flex: 1; /* Permitir que el main ocupe el espacio restante */
+    padding-top: 70px; /* Espacio entre el sidebar y el contenido principal */
+}
+
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* Estilos para el sidebar en móviles */
+@media (max-width: 767.98px) {
+    .sidebar {
+        position: static; /* Quitar posición fija en móviles */
+        width: 100%; /* Ocupar todo el ancho */
+        margin-top: 20px; /* Espacio entre el contenido y el sidebar */
+        padding: 10px; /* Ajustar padding para móviles */
+        height: auto; /* Altura automática */
+    }
+    .sidebar .nav {
+        flex-direction: column; /* Asegurar que los enlaces sean verticales */
+    }
+    .container-fluid {
+        flex-direction: column; /* Asegurar que los elementos sean verticales */
+    }
+    main {
+        padding-top: 120px; /* Espacio entre el sidebar y el contenido principal */
+    }
+}
+
+/* Ajustes para formularios */
+.form-control {
+    border-radius: 5px;
+}
+
+/* Ajustes para la tabla de vacantes y mensajes */
+.table {
+    margin-top: 20px;
+}
+
+/* Ajustes para tarjetas */
+.card {
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
