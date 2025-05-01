@@ -60,12 +60,8 @@ main {
     .sidebar .nav {
         flex-direction: column; /* Asegurar que los enlaces sean verticales */
     }
-    .container-fluid {
-        flex-direction: column; /* Asegurar que los elementos sean verticales */
-    }
-    main {
-        padding-top: 120px; /* Espacio entre el sidebar y el contenido principal */
-    }
+    
+   
 }
 
 /* Ajustes para formularios */
