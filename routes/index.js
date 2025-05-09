@@ -11,9 +11,6 @@ const multer = require("multer");
 const path = require("path");
 const auth = require('../middleware/auth');
 
-// JAMAL
-// const { equal } = require('assert');
-//--------------------------------------
 
 // Configuración de Multer
 const storage = multer.diskStorage({
@@ -73,7 +70,7 @@ router.get("/logout", authController.logout);
 router.get("/recovery", (req, resp) => {
   resp.render("recovery");
 });
-//-----------------------------------------
+
 
 // Dashboard de Estudiante
 router.get("/student-home", auth, async (req, res) => {
@@ -89,7 +86,7 @@ router.get("/student-home", auth, async (req, res) => {
         minAverage:     { $lte: student.average },
         requiredCareer: student.career,
         minQuarters:    { $lte: student.quarters },
-        applicants:     { $ne: student.userId }    // ← excluye aplicadas
+        applicants:     { $ne: student.userId }    // excluye aplicadas
       });
     }
     const user = await User.findById(req.user.id);
@@ -130,7 +127,7 @@ router.get("/student-vacancies", auth, async (req, res) => {
         minAverage: { $lte: student.average },
         requiredCareer: student.career,
         minQuarters: { $lte: student.quarters },
-        applicants:     { $ne: student.userId }    // ← excluye aplicadas
+        applicants:     { $ne: student.userId }    //excluye aplicadas
       });
     }
     const user = await User.findById(req.user.id);
@@ -145,25 +142,25 @@ router.get("/student-vacancies", auth, async (req, res) => {
 // Vacantes de Estudiante
 router.get("/student-vacancies-applied", auth, async (req, res) => {
   try {
-    // 1️⃣ Solo estudiantes
+    // Solo estudiantes
     if (req.user.role !== "student") {
       console.log("Acceso denegado: Rol incorrecto", req.user.role);
       return res.status(403).send("Acceso denegado: Debes ser estudiante");
     }
 
-    // 2️⃣ Encuentra al estudiante
+    // Encuentra al estudiante
     const student = await Student.findOne({ userId: req.user.id });
     if (!student) {
       console.log("Estudiante no encontrado para", req.user.id);
       return res.status(404).send("Estudiante no encontrado");
     }
 
-    // 3️⃣ Busca únicamente las vacantes donde esté en el array applicants
+    // Busca únicamente las vacantes donde esté en el array applicants
     const vacancies = await Vacancy.find({
-      applicants: student.userId   // <-- aquí filtramos por aplicantes
+      applicants: student.userId   // filtrar por aplicantes
     });
 
-    // 4️⃣ Renderiza la vista de vacantes aplicadas
+    // Renderiza la vista de vacantes aplicadas
     const user = await User.findById(req.user.id);
     const success = req.query.success;
     res.render("student-vacancies-applied", {
@@ -216,12 +213,13 @@ router.post(
   studentController.createOrUpdateStudent
 );
 
+// Ruta para aplicar a una vacante
 router.get(
   "/withdraw-application/:vacancyId",
   auth,
   async (req, res) => {
     try {
-      // 1️⃣ Solo estudiantes
+      // 1Solo estudiantes
       if (req.user.role !== "student") {
         console.log("Acceso denegado: Rol incorrecto", req.user.role);
         return res.status(403).send("Acceso denegado: Debes ser estudiante");
@@ -229,7 +227,7 @@ router.get(
 
       const vacancyId = req.params.vacancyId;
 
-      // 2️⃣ Actualiza la vacante quitando tu ID del array applicants
+      // 2Actualiza la vacante quitando tu ID del array applicants
       const vacancy = await Vacancy.findByIdAndUpdate(
         vacancyId,
         { $pull: { applicants: req.user.id } },
@@ -240,7 +238,7 @@ router.get(
         return res.status(404).send("Vacante no encontrada.");
       }
 
-      // 3️⃣ Redirige a tus vacantes aplicadas con un mensaje de éxito
+      // Redirige a tus vacantes aplicadas con un mensaje de éxito
       res.redirect("/student-home");
     } catch (error) {
       console.error("Error al retirar aplicación:", error.message);

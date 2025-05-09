@@ -1,17 +1,16 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Quicksand:wght@300..700&display=swap'); */
-/* @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap'); */
+
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
 
 body, html {
     background-color: #f8f9fa;
-    margin: 0; /* Eliminar margen por defecto */
-    height: 100%; /* Asegurar que el body ocupe toda la altura */
+    margin: 0;
+    height: 100%; 
     font-family: "Quicksand", sans-serif;
     min-height: 100vh;
 }
 
 .navbar{
-    font-size: 1.2rem; /* Tamaño de fuente de la barra de navegación */
+    font-size: 1.2rem;
 }
 .sidebar {
     position: fixed;
@@ -20,16 +19,16 @@ body, html {
     left: 0;
     z-index: 100;
     padding: 25px;
-    background-color: #bc3a2f !important; /* Color de fondo del sidebar */
-    color: white !important; /* Color de texto del sidebar */   
+    background-color: #bc3a2f !important;
+    color: white !important;
     overflow-y: auto;
-    height: calc(100vh - 56px); /* Altura total menos la barra de navegación */
+    height: calc(100vh - 56px);
     font-size: 1.5rem;
 
 }
 
 .sidebar .nav-link {
-    color: white !important; /* Color de texto de los enlaces */
+    color: white !important;
 
 }
 
@@ -38,8 +37,8 @@ body, html {
 }
 
 .summary-card {
-    max-width: 400px; /* Hacer el card más pequeño */
-    font-size: 0.9rem; /* Reducir tamaño de texto */
+    max-width: 400px;
+    font-size: 0.9rem;
 }
 
 .buton-primary{
@@ -49,12 +48,12 @@ body, html {
 
 }
 .btn-primary{
-    background-color: #bc3a2f !important; /* Color de fondo del botón */
-    border-color: #bc3a2f !important; /* Color del borde del botón */
+    background-color: #bc3a2f !important;
+    border-color: #bc3a2f !important;
 }
 
 .btn-primary:hover {
-    background-color: #9f2a1f !important; /* Color de fondo del botón al pasar el mouse */
+    background-color: #9f2a1f !important;
 
 }
 
@@ -68,8 +67,8 @@ body, html {
 main {
     min-height: 100vh;
     margin-top: 56px;
-    flex: 1; /* Permitir que el main ocupe el espacio restante */
-    padding-top: 70px; /* Espacio entre el sidebar y el contenido principal */
+    flex: 1;
+    padding-top: 70px;
 }
 
 
@@ -80,14 +79,14 @@ main {
 /* Estilos para el sidebar en móviles */
 @media (max-width: 767.98px) {
     .sidebar {
-        position: static; /* Quitar posición fija en móviles */
-        width: 100%; /* Ocupar todo el ancho */
-        margin-top: 20px; /* Espacio entre el contenido y el sidebar */
-        padding: 10px; /* Ajustar padding para móviles */
-        height: auto; /* Altura automática */
+        position: static;
+        width: 100%;
+        margin-top: 20px;
+        padding: 10px;
+        height: auto;
     }
     .sidebar .nav {
-        flex-direction: column; /* Asegurar que los enlaces sean verticales */
+        flex-direction: column;
     }
     
    

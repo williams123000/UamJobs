@@ -32,7 +32,7 @@ exports.createMessage = async (req, res) => {
 
     await Vacancy.findByIdAndUpdate(
       vacancyId,
-      { $addToSet: { applicants: student.userId } }, // o student._id si usas ese
+      { $addToSet: { applicants: student.userId } },
       { new: true }
     );
 

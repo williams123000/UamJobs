@@ -29,7 +29,6 @@ const vacancySchema = new mongoose.Schema({
     },
     minQuarters: { type: Number, required: true },
     company: { type: String, required: true },
-    // ← Nuevo campo para funcionalidad tentativa sobre vacantes aplicadas
     applicants: [
         { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
     ]

@@ -6,7 +6,7 @@ exports.register = async (req, res) => {
         const { email, password, role, name } = req.body;
         const user = new User({ email, password, role, name });
         await user.save();
-        res.redirect('/login?registered=true'); // Añadir query string
+        res.redirect('/login?registered=true');
     } catch (error) {
         if (error.code === 11000) {
             return res.render('register', { error: 'El correo ya está registrado' });

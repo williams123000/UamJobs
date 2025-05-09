@@ -29,7 +29,7 @@ exports.getStudentAppliedVacancies = async (req, res, next) => {
       return res.status(404).json({ error: "Estudiante no encontrado" });
     }
     const vacancies = await Vacancy.find({
-      applicants: student.userId, // o req.user.id si guardas _id de User
+      applicants: student.userId, 
     });
 
     res.json(vacancies);
@@ -49,7 +49,7 @@ exports.getFilteredVacancies = async (req, res) => {
       minAverage:     { $lte: student.average },
       requiredCareer: student.career,
       minQuarters:    { $lte: student.quarters },
-      applicants:     { $ne: student.userId }    // ← excluye aplicadas
+      applicants:     { $ne: student.userId }    //excluye aplicadas
     });
     const user = await User.findById(req.user.id);
     const success = req.query.success;
@@ -87,7 +87,7 @@ exports.getEditVacancy = async (req, res, next) => {
 
 exports.postEditVacancy = async (req, res, next) => {
   try {
-    // 1️⃣ Obtén el nombre de la empresa
+    // Obtener nombre de la empresa
     let companyName = req.user.name;
     if (!companyName) {
       const user = await User.findById(req.user.id);
