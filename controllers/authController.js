@@ -6,10 +6,12 @@ exports.register = async (req, res) => {
         const { email, password, role, name } = req.body;
         const user = new User({ email, password, role, name });
         await user.save();
-
-        res.redirect('/login');
+        res.redirect('/login?registered=true'); // Añadir query string
     } catch (error) {
-        res.status(400).send(error.message);
+        if (error.code === 11000) {
+            return res.render('register', { error: 'El correo ya está registrado' });
+        }
+        res.render('register', { error: error.message });
     }
 };
 
@@ -35,5 +37,5 @@ exports.login = async (req, res) => {
 
 exports.logout = (req, res) => {
     res.clearCookie('token');
-    res.redirect('/login');
+    res.redirect('/');
 };

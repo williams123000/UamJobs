@@ -14,14 +14,23 @@
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <h2>Registrarse</h2>
+
+                <!-- Mostrar alert si hay un error -->
+                <% if (typeof error !== 'undefined') { %>
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <%= error %>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                <% } %>
+
                 <form action="/register" method="POST">
                     <div class="mb-3">
                         <label for="name" class="form-label">Nombre</label>
-                        <input type="text" class="form-control" id="name" name="name" required>
+                        <input type="text" class="form-control" id="name" name="name" value="<%= typeof name !== 'undefined' ? name : '' %>" required>
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Correo Electrónico</label>
-                        <input type="email" class="form-control" id="email" name="email" required>
+                        <input type="email" class="form-control" id="email" name="email" value="<%= typeof email !== 'undefined' ? email : '' %>" required>
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label">Contraseña</label>
@@ -30,16 +39,19 @@
                     <div class="mb-3">
                         <label for="role" class="form-label">Rol</label>
                         <select class="form-control" id="role" name="role" required>
-                            <option value="student">Estudiante</option>
-                            <option value="company">Empresa</option>
+                            <option value="student" <%= typeof role !== 'undefined' && role === 'student' ? 'selected' : '' %>>Estudiante</option>
+                            <option value="company" <%= typeof role !== 'undefined' && role === 'company' ? 'selected' : '' %>>Empresa</option>
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-primary">Registrarse</button>
+                    <div class="buton-primary">
+                        <button type="submit" class="btn btn-primary">Registrarse</button>
+                    </div>
                 </form>
                 <p class="mt-3">¿Ya tienes cuenta? <a href="/login">Inicia sesión</a></p>
             </div>
         </div>
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

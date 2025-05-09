@@ -17,16 +17,17 @@
                 <% if (student) { %>
                     <p>Bienvenido, <%= user.name %>.</p>
                     <h3>Información Académica</h3>
+                    <% if (student.profilePhotoPath) { %>
+                        <p><strong>Foto de Perfil:</strong> <img src="<%= student.profilePhotoPath %>" alt="Foto de Perfil" style="max-width: 100px; border-radius: 10px;"></p>
+                    <% } %>
                     <p><strong>Promedio:</strong> <%= student.average %></p>
                     <p><strong>Carrera:</strong> <%= student.career %></p>
                     <p><strong>Trimestres:</strong> <%= student.quarters %></p>
                     <p><strong>Créditos:</strong> <%= student.credits %></p>
                     <% if (student.cvPath) { %>
-                        <p><strong>CV:</strong> <a href="<%= student.cvPath %>" target="_blank">Ver CV</a></p>
+                        <p><strong>CV:</strong> <a href="<%= student.cvPath %>" target="_blank" style="text-decoration: none;">Ver CV</a></p>
                     <% } %>
-                    <% if (student.profilePhotoPath) { %>
-                        <p><strong>Foto de Perfil:</strong> <img src="<%= student.profilePhotoPath %>" alt="Foto de Perfil" style="max-width: 100px;"></p>
-                    <% } %>
+                    
                     <h3>Vacantes Disponibles</h3>
                     <% if (vacancies.length > 0) { %>
                         <div class="row">

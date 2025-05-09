@@ -17,28 +17,34 @@
                 <% if (messages.length > 0) { %>
                     <div class="table-responsive">
                         <table class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th>Estudiante</th>
-                                    <th>Correo</th>
-                                    <th>Vacante</th>
-                                    <th>Mensaje</th>
-                                    <th>Fecha</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <% messages.forEach(message => { %>
-                                    <tr>
-                                        <td><%= message.studentName %></td>
-                                        <td><a href="mailto:<%= message.studentEmail %>"><%= message.studentEmail %></a></td>
-                                        <td><%= message.vacancyTitle %></td>
-                                        <td><%= message.message %></td>
-                                        <td><%= message.createdAt.toLocaleDateString('es-ES') %></td>
-                                    </tr>
-                                <% }) %>
-                            </tbody>
+                          <thead>
+                            <tr>
+                              <th>Estudiante</th>
+                              <th>Correo</th>
+                              <th>Vacante</th>
+                              <th>Mensaje</th>
+                              <th>Fecha</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <% messages.forEach(message => { %>
+                              <tr>
+                                <td data-label="Estudiante"><%= message.studentName %></td>
+                                <td data-label="Correo">
+                                  <a href="mailto:<%= message.studentEmail %>">
+                                    <%= message.studentEmail %>
+                                  </a>
+                                </td>
+                                <td data-label="Vacante"><%= message.vacancyTitle %></td>
+                                <td data-label="Mensaje"><%= message.message %></td>
+                                <td data-label="Fecha">
+                                  <%= message.createdAt.toLocaleDateString('es-ES') %>
+                                </td>
+                              </tr>
+                            <% }) %>
+                          </tbody>
                         </table>
-                    </div>
+                      </div>
                 <% } else { %>
                     <p>No has recibido ningún mensaje.</p>
                 <% } %>

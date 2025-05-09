@@ -1,0 +1,235 @@
+:root{
+    --rojo-uamjobs: #BC3A2F;
+    --section: #F7F7FC
+}
+#bienvenidaBtn{
+    text-decoration: none;
+    color: white;
+    letter-spacing: 1px;
+}
+body, html {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+.container{
+    flex: 1;
+}
+.title{
+    letter-spacing: 1.3px;
+}
+.searchBar{
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 86px); /*header = 86px si no le saben no le muevan*/
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    overflow: hidden;
+    width: auto;
+    background-color: white;
+    /*
+      cssgradient.io
+    */
+}
+.searchBar h3{
+    font-size: 4rem;
+    color: black;
+    text-align: center;
+    max-width: 1000px;
+}
+.highlight{
+    color: var(--rojo-uamjobs);
+}
+button{
+    height: 3rem;
+    background-color: var(--rojo-uamjobs);
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    border-style: none;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    width: 40%;
+}
+button:hover{
+    background-color: #9F2A1F;
+}
+.info{
+    padding: 3rem;
+    display: flex;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    margin: 0 auto;
+}
+.genInfo{
+    display: block;
+    width: 640px;
+}
+.genInfo h2{
+    font-size: 2rem;
+}
+.genInfo h4{
+    font-size: 1.3rem;
+}
+.infoImg img{
+    width: 600px;
+}
+.convenios{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 10rem 2rem 10rem;
+    background-color: var(--section);
+}
+.convenios img{
+    height: 3rem;
+}
+.convenios p{
+    font-size: 1.3rem;
+    color: black;
+}
+.title{
+    padding-top: 5rem;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+}
+.opinionesContainer{
+    display: flex;
+    padding: 1rem 10rem 4rem 10rem;
+    justify-content: center;
+}
+.opinionesContainer .opinion{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--section);
+    border-radius: 10px;
+    margin: 2rem;
+    padding: 1rem;
+}
+.opinionHeader{
+    display: flex;
+    justify-content: space-between;
+}
+.opinionesContainer #pp{
+    height: 5rem;
+    border-radius: 50%;
+}
+#star{
+    height: 1.3rem;
+}
+.name{
+    padding: 0;
+    margin: 0;
+}
+.headBtns{
+    display: none;
+}
+@media (min-width: 1025px){
+    .headBtns{
+        display: none;
+    }
+}
+@media (max-width: 1024px) {
+    .searchBar {
+        min-height: calc(100vh - 60px);
+        padding: 0 1rem;
+    }
+    .searchBar h3 {
+        font-size: 2rem;
+        max-width: 100%;
+    }
+    button {
+        width: 80%;
+        font-size: 1.2rem;
+    }
+    .info {
+        flex-direction: column;
+        padding: 1.5rem;
+        width: 90%;
+    }
+    .genInfo {
+        width: 100%;
+        order: 2;
+    }
+    .genInfo h2 {
+        text-align: center;
+        width: 100%;
+        margin: 0 auto;
+        padding: 2rem 0;
+    }
+    .infoImg img {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 1.5rem;
+    }
+    .convenios {
+        flex-direction: column;
+        padding: 1.5rem;
+    }
+    .convenios p {
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+    .convenios img {
+        height: 2rem;
+        margin: 0.5rem 0;
+    }
+    .opiniones .title h2 {
+        text-align: center;
+        width: 100%;
+        margin: 0 auto;
+        padding: 2rem 0;
+    }
+    .opinionesContainer {
+        flex-direction: column;
+        padding: 1rem;
+    }
+    .opinionesContainer .opinion {
+        margin: 1rem 0;
+        width: 100%;
+    }
+    .opinionHeader {
+        flex-direction: column;
+        align-items: center;
+    }
+    .opinionesContainer #pp {
+        height: 4rem;
+    }
+    .opinionesContainer {
+        flex-direction: column;
+    }
+    .opinionesContainer .opinion {
+        margin: 1rem 0;
+        padding: 1rem;
+        box-sizing: border-box;
+    }
+    .opinionHeader {
+        padding: 0 1rem;
+    }
+    .opinion p {
+        padding: 0 1rem;
+        margin-top: 1rem;
+    }
+    .name {
+        padding: 0 1rem;
+        margin-top: 1rem;
+    }
+    .stars {
+        margin-top: 0.5rem;
+    }
+    .name h2, .name h3 {
+        text-align: center;
+    }
+    .headBtns{
+        display: flex;
+    }
+    .headBtns button{
+        margin: 1rem;
+    }
+}

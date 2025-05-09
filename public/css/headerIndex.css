@@ -1,0 +1,76 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header a{
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: var(--rojo-uamjobs);
+    padding-bottom: 2px;
+    position: relative;
+    margin-right: 30px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.header a:hover{
+    cursor: pointer;
+}
+.header a:hover::after {
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.header .logo img{
+    height: 5rem;
+    padding-left: 3rem;
+}
+@media (max-width: 1018px) {
+    .header{
+        display: flex;
+    }
+    .header .logo img{
+        padding-left: 1rem;
+    }
+    .links{
+        display: none;
+    }
+    .respMenu{
+        position: relative;
+        display: inline-block;
+    }
+    .respMenu button{
+        font-size:2.5rem;
+        width: auto;
+        margin-right: 1rem;
+        background-color: background;
+        color: #BC3A2F;
+        font-weight: bold;
+        border: none;
+        cursor: pointer;
+    }
+    .dropdown-content{
+        display: none;
+        position: absolute;
+        background-color: #FFFFFF;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+        z-index: 1;
+        border-radius: 8px;
+    }
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        border-bottom: 1px solid #F0F0F0;
+      }
+    .respMenu:hover .dropdown-content{
+        display: block;
+    }
+}
+@media (min-width: 640px){
+    .respMenu{
+        display: none;
+    }
+}

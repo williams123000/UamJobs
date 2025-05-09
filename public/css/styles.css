@@ -1,24 +1,36 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Quicksand:wght@300..700&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+
 body, html {
     background-color: #f8f9fa;
     margin: 0; /* Eliminar margen por defecto */
     height: 100%; /* Asegurar que el body ocupe toda la altura */
+    font-family: "Quicksand", sans-serif;
+    min-height: 100vh;
 }
 
+.navbar{
+    font-size: 1.2rem; /* Tamaño de fuente de la barra de navegación */
+}
 .sidebar {
     position: fixed;
     top: 56px;
     bottom: 0;
     left: 0;
     z-index: 100;
-    padding: 20px;
-    background-color: #343a40;
-    color: white;
+    padding: 25px;
+    background-color: #bc3a2f !important; /* Color de fondo del sidebar */
+    color: white !important; /* Color de texto del sidebar */   
     overflow-y: auto;
     height: calc(100vh - 56px); /* Altura total menos la barra de navegación */
+    font-size: 1.5rem;
+
 }
 
 .sidebar .nav-link {
-    color: #adb5bd;
+    color: white !important; /* Color de texto de los enlaces */
+
 }
 
 .sidebar .nav-link:hover {
@@ -30,6 +42,22 @@ body, html {
     font-size: 0.9rem; /* Reducir tamaño de texto */
 }
 
+.buton-primary{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+
+}
+.btn-primary{
+    background-color: #bc3a2f !important; /* Color de fondo del botón */
+    border-color: #bc3a2f !important; /* Color del borde del botón */
+}
+
+.btn-primary:hover {
+    background-color: #9f2a1f !important; /* Color de fondo del botón al pasar el mouse */
+
+}
+
 .profile-photo {
     max-width: 100px;
     height: auto;
@@ -38,6 +66,7 @@ body, html {
 }
 
 main {
+    min-height: 100vh;
     margin-top: 56px;
     flex: 1; /* Permitir que el main ocupe el espacio restante */
     padding-top: 70px; /* Espacio entre el sidebar y el contenido principal */

@@ -1,0 +1,92 @@
+<%-include('partials/headerIndexTemplate',{tituloPagina:'UAMJobs'})%>
+<head>
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+    <div class="container">
+       <div class="searchBar">
+            <h3 class="title">¡Donde el <span class="highlight">Talento</span> Encuentra su Oportunidad!</h3>
+            <div class="headBtns">
+                <button> <a href="/login" id="bienvenidaBtn">Iniciar Sesión</a></button>
+                <button> <a href="/register" id="bienvenidaBtn">Registrarse</a></button>
+            </div>
+        </div>
+        <div class="info">
+            <div class="genInfo">
+                <h2>¿Quienes Somos?</h2>
+                <p>UAMJobs es un portal de empleo diseñado especialmente para la comunidad de la Universidad Autónoma Metropolitana (UAM). Su objetivo principal es conectar a estudiantes, egresados y empleadores mediante una plataforma eficiente y segura. A través de UAMJobs, los usuarios pueden acceder a ofertas laborales, prácticas profesionales y oportunidades de servicio social. El sitio está orientado a facilitar la inserción laboral de los miembros de la UAM, promoviendo vínculos con empresas e instituciones del sector público y privado. Los empleadores pueden publicar vacantes y buscar talento universitario altamente calificado. UAMJobs también ofrece herramientas para la creación de currículums y preparación para entrevistas. La plataforma se actualiza constantemente con nuevas ofertas y eventos de reclutamiento. Su interfaz es intuitiva y fácil de usar, lo que mejora la experiencia del usuario. Además, colabora estrechamente con los departamentos de orientación profesional de la UAM. UAMJobs representa un puente entre la formación académica y el mundo laboral real. 
+                <p>
+            </div>
+            <div class="infoImg">
+                <img src="/media/work.png" alt="">
+            </div>
+        </div>
+        <div class="convenios">
+            <p>Ellos nos recomiendan: </p>
+            <a href="https://www.bbva.mx/"><img src="/media/logoBBVA.png" alt="logoBBVA"></a>
+            <a href="https://www.manpower.com.mx/home"><img src="/media/logoManPower.png" alt="logoManPower"></a>
+            <a href="https://www.salesforce.com/mx/?ir=1"><img src="/media/logoSalesforce.png" alt="logo Salesforce"></a>
+            <a href="https://www.pemex.com/Paginas/default.aspx"><img src="/media/logoPemex.png" alt="logoPemex"></a>
+            <a href="https://www.banxico.org.mx/"><img src="/media/logoBM.png" alt="logoBancoMexico"></a>
+        </div>
+        <section class="opiniones">
+            <div class="title">
+                <h2>Recomendaciones de Candidatos y Asociados</h2>
+            </div>
+            <div class="opinionesContainer">
+                <div class="opinion">
+                    <div class="opinionHeader">
+                        <img id="pp" src="/media/pp/pp1.jpg" alt="profile1">
+                        <div class="stars">
+                            <img id="star" src="/media/icons/star.png" alt="">
+                            <img id="star" src="/media/icons/star.png" alt="">
+                            <img id="star" src="/media/icons/star.png" alt="">
+                            <img id="star" src="/media/icons/star.png" alt="">
+                            <img id="star" src="/media/icons/star.png" alt="">
+                        </div>
+                    </div>
+                    <div class="name">
+                        <h2>Carlos Guerrero</h2>
+                        <h4>Office Manager & HR</h4>
+                    </div>
+                    <p>UAMJobs ha sido una herramienta valiosa para nuestra empresa en la búsqueda de talento joven y calificado. La plataforma nos ha permitido acceder a perfiles profesionales bien preparados y alineados con nuestras necesidades. Valoramos especialmente la eficiencia del sistema y la seriedad de los candidatos. Sin duda, seguiremos confiando en UAMJobs como canal de reclutamiento."</p>
+                </div>
+                <div class="opinion">
+                    <div class="opinionHeader">
+                        <img id="pp" src="/media/pp/pp3.jpg" alt="profile1">
+                        <div class="stars">
+                            <img id="star" src="/media/icons/star.png" alt="">
+                            <img id="star" src="/media/icons/star.png" alt="">
+                            <img id="star" src="/media/icons/star.png" alt="">
+                            <img id="star" src="/media/icons/star.png" alt="">
+                            <img id="star" src="/media/icons/star.png" alt="">
+                        </div>
+                    </div>
+                    <div class="name">
+                        <h2>David Espejel</h2>
+                        <h4>Technology Solutions Director</h4>
+                    </div>
+                    <p>Hemos trabajado con múltiples bolsas de empleo universitarias, pero UAMJobs destaca por el perfil de sus candidatos y el seguimiento que da a las empresas reclutadoras. Me parece valioso que el portal filtre adecuadamente por áreas académicas y experiencia previa, lo que nos permite optimizar el tiempo de selección. Sin duda, lo seguiremos usando como canal principal para prácticas profesionales y posiciones junior en nuestra área de TI."</p>
+                </div>
+                <div class="opinion">
+                    <div class="opinionHeader">
+                        <img id="pp" src="/media/pp/pp2.jpeg" alt="profile1">
+                        <div class="stars">
+                            <img id="star" src="/media/icons/star.png" alt="">
+                            <img id="star" src="/media/icons/star.png" alt="">
+                            <img id="star" src="/media/icons/star.png" alt="">
+                            <img id="star" src="/media/icons/star.png" alt="">
+                            <img id="star" src="/media/icons/star.png" alt="">
+                        </div>
+                    </div>
+                    <div class="name">
+                        <h2>Josué Pérez</h2>
+                        <h4>Chief Information Officer (CIO)</h4>
+                    </div>
+                    <p>Como CIO, uno de mis objetivos clave es asegurar la incorporación de talento tecnológico que pueda integrarse rápidamente a nuestros sistemas y procesos. UAMJobs ha sido un recurso valioso para identificar jóvenes profesionales con sólidos conocimientos en tecnologías de la información y una mentalidad adaptable. La plataforma no solo nos ha facilitado la publicación y gestión de vacantes, sino que también ha demostrado ser un puente eficiente entre la academia y la industria. Es una herramienta estratégica que seguiremos considerando en nuestro proceso de reclutamiento."</p>
+                </div>
+            </div>
+        </section>
+    </div>
+    <%-include('partials/footerTemplate')%>
+</body>
