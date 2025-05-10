@@ -66,7 +66,7 @@ router.post("/login", authController.login);
 router.get("/register", (req, res) => res.render("register", { user: null }));
 router.post("/register", authController.register);
 router.get("/logout", authController.logout);
-// Por Hacer
+// recuperación de contraseña (tentativo)
 router.get("/recovery", (req, resp) => {
   resp.render("recovery");
 });
@@ -176,7 +176,10 @@ router.get("/student-vacancies-applied", auth, async (req, res) => {
 
 
 // Rutas de Estudiantes
-router.post("/student", auth, (req, res, next) => {
+router.post(
+  "/student",
+  auth,
+  (req, res, next) => {
     upload.fields([
       { name: "cv", maxCount: 1 },
       { name: "profilePhoto", maxCount: 1 },
@@ -211,7 +214,10 @@ router.post("/student", auth, (req, res, next) => {
 );
 
 // Ruta para aplicar a una vacante
-router.get("/withdraw-application/:vacancyId", auth, async (req, res) => {
+router.get(
+  "/withdraw-application/:vacancyId",
+  auth,
+  async (req, res) => {
     try {
       // 1Solo estudiantes
       if (req.user.role !== "student") {
@@ -337,30 +343,36 @@ router.get("/contact-company/:vacancyId", auth, async (req, res) => {
   }
 });
 
-router.post("/contact-company", auth, 
-  messageController.createMessage);
+router.post("/contact-company", auth, messageController.createMessage);
 
 // Mis Mensajes (Empresa)
-router.get("/company-messages", auth, 
-  messageController.getCompanyMessages);
+router.get("/company-messages", auth, messageController.getCompanyMessages);
 
-// Rutas de Vacantes
-router.get("/vacancies/:studentId", auth, 
+// Rutas de Vacantes (para APIs o futuras funcionalidades)
+router.get(
+  "/vacancies/:studentId",
+  auth,
   vacancyController.getFilteredVacancies
 );
 
-// 1️⃣ Formulario de edición
-router.get("/company-vacancies/:id/edit", auth, 
+// Formulario de edición
+router.get(
+  "/company-vacancies/:id/edit",
+  auth,
   vacancyController.getEditVacancy
 );
 
-// 2️⃣ Procesar cambios
-router.post("/company-vacancies/:id/edit", auth, 
+// Procesar cambios
+router.post(
+  "/company-vacancies/:id/edit",
+  auth,
   vacancyController.postEditVacancy
 );
 
-// 3️⃣ Borrar vacante
-router.post("/company-vacancies/:id/delete", auth,
+// Borrar vacante
+router.post(
+  "/company-vacancies/:id/delete",
+  auth,
   vacancyController.deleteVacancy
 );
 
